@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب الكتلة الجافة</title>
+</head>
+<body>
+    <h1>حساب الكتلة الجافة</h1>
+    <label for="mass">كتلة الفرد الجاف (g): </label>
+    <input type="number" id="mass"><br>
+    <label for="population">عدد الأفراد في المستوى الغذائي: </label>
+    <input type="number" id="population"><br>
+    <label for="area">المساحة (m²): </label>
+    <input type="number" id="area"><br>
+    <button onclick="calculateDryMass()">حساب</button><br>
+    <p id="result"></p>
+
+    <script>
+        function calculateDryMass() {
+            var mass = parseFloat(document.getElementById("mass").value);
+            var population = parseInt(document.getElementById("population").value);
+            var area = parseFloat(document.getElementById("area").value);
+            var dryMass = calculateDryMassCpp(mass, population, area);
+            document.getElementById("result").innerText = "الكتلة الجافة: " + dryMass.toFixed(2) + " g/m";
+        }
+    </script>
+</body>
+</html>
